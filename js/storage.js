@@ -1,8 +1,8 @@
 /* global monogatari */
 
 // Persistent Storage Variable
-monogatari.storage ({
-	player: {
-		name: ''
-	}
+monogatari.storage({
+  player: {
+    name: '',
+  },
 });
