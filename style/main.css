@@ -45,12 +45,17 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
-
+	background-color: whitesmoke;
 }
 
 /* Main Menu Buttons Styling */
 [data-screen="main"] button {
+	background-color: lightskyblue;
+}
 
+/* Main Menu Buttons Styling */
+[data-screen="main"] button:hover {
+	background-color: pink;
 }
 
 /**
