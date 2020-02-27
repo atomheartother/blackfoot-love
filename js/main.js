@@ -1,4 +1,4 @@
-'use strict';
+
 /* global Monogatari */
 /* global monogatari */
 
@@ -21,18 +21,18 @@
  *
  * You should always keep the $_ready function as the last thing on this file.
  * =============================================================================
- **/
+ * */
 
 const { $_ready, $_ } = Monogatari;
 
 // 1. Outside the $_ready function:
 
 
-$_ready (() => {
-	// 2. Inside the $_ready function:
+$_ready(() => {
+  // 2. Inside the $_ready function:
 
-	monogatari.init ('#monogatari').then (() => {
-		// 3. Inside the init function:
+  monogatari.init('#monogatari').then(() => {
+    // 3. Inside the init function:
 
-	});
+  });
 });
