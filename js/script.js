@@ -73,7 +73,8 @@ monogatari.characters({
     Name: 'Kevin',
     color: 'purple',
     directory: 'Kevin',
-    Images: {
+
+    sprites: {
       default: 'default.png',
       surprised: 'surprised.png',
       shy: 'shy.png',
@@ -92,10 +93,10 @@ monogatari.characters({
 
 monogatari.script({
   // Put chapters here
-  Day1,
   Intro,
+  ...Day1,
   // The game starts here.
   Start: [
-    'jump Intro',
+    'jump Day1',
   ],
 });
