@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* global monogatari */
 /* global characters */
 
@@ -83,6 +82,7 @@ monogatari.characters({
   nico: {
     Name: 'Nicolas-sensei',
     directory: 'Nicolas',
+    color: 'green',
     Images: { default: 'default.png' },
   },
   unknwn: {

@@ -1,3 +1,5 @@
+/* global monogatari */
+
 const Day1 = {
   Day1: [
     'show scene class with fadeIn',
@@ -16,7 +18,7 @@ const Day1 = {
     'Je ne sais pas trop que répondre donc je hoche la tête. Le professeur se tourne vers la classe.',
     'nico Tout le monde, {{player.name}} nous rejoint en milieu d\'année, j\'éspère que vous serez accueillants',
     'nico Nous travaillons toujours sur le pack d\'arrivée donc vous devrez vous débrouiller sans. {{player.name}}, veux-tu te présenter à la classe?',
-    'Je sens la pression monter alors que je me présente devant tous ces visages inconnus. Depuis le fond de la classe, Kevin me lance un sourire d\'encouragement et j\'inspire décisivement...',
+    'Je sens la pression monter alors que je me présente devant tous ces visages inconnus. Depuis le milieu de la classe, Kevin me lance un sourire d\'encouragement et j\'inspire décisivement...',
     'p Um, bonjour, je m\'appelle {{player.name}}, j\'ai 16 ans, et euh...',
     'Je perds mes mots, par où commencer? Je ne sais pas vraiment me présenter...',
     'nico Tu transfères ici depuis une autre école, non? Où étudiais-tu avant?',
@@ -79,27 +81,49 @@ const Day1 = {
     "nico Vous aurez tout le temps de parler à notre nouvelle recrue à la pause, pour l'instant, c'est cours de Maths!",
     'nico {{player.name}}, tu peux prendre la place libre près de la fenêtre.',
     'hide character nico with fadeOut',
-    "Je me dirige vers la chaise et m'asseoit... Réalisant très vite que Kevin est juste derrière moi! Alors que le cours commence et que tout le monde sort son cahier de Maths, il me tapote sur l'épaule et me fait un signe du pouce.",
+    "Je me dirige vers la chaise désignée, suivi du regard par quasiment toute la salle... Je remarque tout de même un étudiant qui n'a pas l'air très intéressé par moi, tout au fond de la classe.",
+    "Me demandans pourquoi cet étudiant particulier avait attiré mon attention, je vois qu'il semble faire du skate sous son bureau! Les deux pieds sur la planche, il la fait osciller silencieusement en regardant dehors par la fenêtre. Étrange...",
+    "Arrivé à ma place, je réalise que Kevin est assis juste derrière moi! Je m'assois rapidement et, alors que le cours commence et que tout le monde sort son cahier de Maths, il me tapote sur l'épaule et me fait un signe du pouce.",
     {
       Conditional: {
         Condition() {
-          return this.storage('school');
+          return this.storage('school') === 2;
         },
-        True: 'jump KevinPraise',
-        False: 'jump KevinNormal',
+        True: 'jump Day1KevinPraise',
+        False: 'jump Day1KevinNormal',
       },
     }],
-  KevinPraise: [
+  Day1KevinPraise: [
     'kevin Wow, {{player.name}}, je ne savais pas que tu étais colorieur! Je suis président du club de coloriage!',
     'Je souris timidement et me retourne vers mon cahier. Alors que le cours commence, le sourire de Kevin reste dans ma tête...',
-    'jump Day1Lunch',
+    'jump Day1EndofMorning',
   ],
-  KevinNormal: [
+  Day1KevinNormal: [
     "kevin Ça s'est bien passé! Bienvenue dans la classe, {{player.name}}!",
     'Je souris timidement et me retourne vers mon cahier. Alors que le cours commence, je souris intérieurement.',
-    'jump Day1Lunch',
+    'jump Day1EndofMorning',
   ],
-  Day1Lunch: [
+  Day1EndofMorning: [
     'On dirait que je me suis déjà fait un ami!',
+    'FADE OUT & SONS ici',
+    'Je ne suis vraiment pas fortiche en Maths, et le niveau à Blackfoot Academy est plus élevé que je pensais... Alors que la cloche sonne pour indiquer la fin du cours, je réalise que je vais devoir travailler fort pour garder le niveau!',
+    'kevin {{player.name}}!',
+    'show character kevin default with fadeIn',
+    'Je me retourne pour voir Kevin qui me sourit - il a déjà rangé ses affaires dans son sac et se lève.',
+    "kevin Veux-tu que je te fasse faire un tour de l'école avant le déjeuner?",
+    "Alors que Kevin attend ma réponse, je remarque que l'étudiant à skateboard semble avoir quitté son bureau en vitesse pour s'eclipser par la porte de derrière.",
+    {
+      Choice: {
+        Text: "Refuser l'offre de Kevin et suivre l'inconnu au skateboard",
+        Do: 'jump Day1FollowPm',
+        onChosen() {
+          monogatari.storage().affinity.pm += 1;
+        },
+      },
+      Colorieur: {
+        Text: "Visiter l'école avec Kevin.",
+        Do: 'jump Day1FollowKevin',
+      },
+    },
   ],
 };
