@@ -16,7 +16,7 @@ const Day1 = {
     'show character nico default at center with move',
     'nico Tu es {{player.name}}, c\'est bien ça? Bienvenue dans la classe 3-2.',
     'Je ne sais pas trop que répondre donc je hoche la tête. Le professeur se tourne vers la classe.',
-    'nico Tout le monde, {{player.name}} nous rejoint en milieu d\'année, j\'éspère que vous serez accueillants',
+    'nico Tout le monde, {{player.name}} nous rejoint en milieu d\'année, j\'éspère que vous serez suffisamment chaleureux et accueillants, arriver dans une nouvelle école n\'est pas toujours facile!',
     'nico Nous travaillons toujours sur le pack d\'arrivée donc vous devrez vous débrouiller sans. {{player.name}}, veux-tu te présenter à la classe?',
     'Je sens la pression monter alors que je me présente devant tous ces visages inconnus. Depuis le milieu de la classe, Kevin me lance un sourire d\'encouragement et j\'inspire décisivement...',
     'p Um, bonjour, je m\'appelle {{player.name}}, j\'ai 16 ans, et euh...',
@@ -120,12 +120,19 @@ const Day1 = {
     'kevin {{player.name}}!',
     'show character kevin default with fadeIn',
     'Je me retourne pour voir Kevin qui me sourit - il a déjà rangé ses affaires dans son sac et se lève.',
-    "kevin Veux-tu que je te fasse faire un tour de l'école avant le déjeuner?",
-    "Alors que Kevin attend ma réponse, je remarque que l'étudiant à skateboard semble avoir quitté son bureau en vitesse pour s'eclipser par la porte de derrière.",
+    'show character pm default at right with fadeIn',
+    "Me retournant pour parler à Kevin, je vois que l'étudiant à skateboard s'est levé de son bureau en vitesse, et s'apprète à s'eclipser par la porte de derrière.",
+    "Le suivant du coin de l'oeil, je vois qu'il sort un paquet de cigarettes de sa veste en douce!",
+    "Alors que je le fixe du regard, l'étudiant se tourne vers moi et me fait un clin d'oeil... Puis sort de la classe discrètement.",
+    'hide character pm with fadeOut',
+    'kevin Alors, {{player.name}}?',
+    "Oups, Kevin essaie de me parler, je ne l'écoutais pas du tout!",
+    'p Euh, pardon, quoi?',
+    "kevin Pfff... Je te demandais si tu voulais que je te fasse faire un tour de l'école avant le déjeuner?",
     {
       Choice: {
         PM: {
-          Text: "Refuser l'offre de Kevin et suivre l'inconnu au skateboard (WIP)",
+          Text: "Refuser l'offre de Kevin et suivre l'étudiant au skateboard (WIP)",
           Do: 'jump Day1FollowPm',
           onChosen() {
             monogatari.storage().affinity.pm += 1;

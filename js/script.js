@@ -103,6 +103,12 @@ monogatari.characters({
     color: 'green',
     Images: { default: 'default.png' },
   },
+  pm: {
+    Name: 'PM',
+    directory: 'PM',
+    color: 'darkred',
+    Images: { default: 'default.png' },
+  },
   unknwn: {
     Name: '???',
     color: 'lightgrey',
