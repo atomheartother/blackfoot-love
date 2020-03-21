@@ -121,17 +121,6 @@ const Day1 = {
     'show character kevin default with fadeIn',
     'Je me retourne pour voir Kevin qui me sourit - il a déjà rangé ses affaires dans son sac et se lève.',
     "kevin Veux-tu que je te fasse faire un tour de l'école avant le déjeuner?",
-    {
-      Conditional: {
-        Condition() {
-          return this.storage('affinity').pm > 0;
-        },
-        True: 'jump PMChoice',
-        False: 'jump Day1FollowKevin',
-      },
-    },
-  ],
-  PMChoice: [
     "Alors que Kevin attend ma réponse, je remarque que l'étudiant à skateboard semble avoir quitté son bureau en vitesse pour s'eclipser par la porte de derrière.",
     {
       Choice: {
@@ -147,16 +136,11 @@ const Day1 = {
         },
         NotPM: {
           Text: "Visiter l'école avec Kevin.",
-          Do: 'jump Day1FollowKevin',
+          Do: "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
         },
       },
     },
-  ],
-  Day1FollowPm: [
-  ],
-  Day1FollowKevin: [
     'hide character kevin with fadeOut',
-    "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
     'show scene hall1 with fadeIn',
     "Je suis Kevin à travers les couloirs alors qu'il me montre le premier étage de Blackfoot Academy.",
     "La salle des profs, les différentes salles de réunion... Kevin me dit quelques mots sur chaque salle, je suis chanceux de l'avoir rencontré!",
