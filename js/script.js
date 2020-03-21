@@ -59,6 +59,8 @@ monogatari.assets('images', {
 monogatari.assets('scenes', {
   schoolEntrance: 'schoolEntrance.png',
   class: 'class.jpg',
+  hall1: 'hall1.jpg',
+  studentCouncil: 'studentcouncil.jpg',
 });
 
 
@@ -77,6 +79,14 @@ monogatari.characters({
       default: 'default.png',
       surprised: 'surprised.png',
       shy: 'shy.png',
+    },
+  },
+  leslie: {
+    Name: 'Leslie',
+    color: 'blue',
+    directory: 'Leslie',
+    sprites: {
+      default: 'default.png',
     },
   },
   nico: {

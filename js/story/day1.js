@@ -32,6 +32,9 @@ const Day1 = {
             monogatari.storage().affinity.max += 1;
             monogatari.storage().school = 1;
           },
+          onRevert() {
+            monogatari.storage().affinity.max -= 1;
+          },
         },
         Colorieur: {
           Text: "J'étais à e-artsoap, où j'étudiais le coloriage.",
@@ -40,6 +43,9 @@ const Day1 = {
             monogatari.storage().affinity.kevin += 1;
             monogatari.storage().school = 2;
           },
+          onRevert() {
+            monogatari.storage().affinity.kevin -= 1;
+          },
         },
         Rebel: {
           Text: "J'allais pas beaucoup en cours, j'ai oublié...",
@@ -47,6 +53,9 @@ const Day1 = {
           onChosen() {
             monogatari.storage().affinity.pm += 1;
             monogatari.storage().school = 3;
+          },
+          onRevert() {
+            monogatari.storage().affinity.pm -= 1;
           },
         },
       },
@@ -70,7 +79,7 @@ const Day1 = {
   ],
   Rebel: [
     "p Haha, euh, pour être honnête, j'allais si peu en cours, j'ai un peu oublié le nom de mon ancienne école...",
-    "Des murmures traversent la classe après ma réponse. J'entends quelques chuchotements dans le brouhaha...",
+    "Des murmures traversent la classe après ma réponse embarassée. J'entends quelques chuchotements dans le brouhaha...",
     'unknwn Un rebelle!',
     'unknwn Cool!',
     'unknwn Ça manquait justement de désordre ici!',
@@ -92,7 +101,8 @@ const Day1 = {
         True: 'jump Day1KevinPraise',
         False: 'jump Day1KevinNormal',
       },
-    }],
+    },
+  ],
   Day1KevinPraise: [
     'kevin Wow, {{player.name}}, je ne savais pas que tu étais colorieur! Je suis président du club de coloriage!',
     'Je souris timidement et me retourne vers mon cahier. Alors que le cours commence, le sourire de Kevin reste dans ma tête...',
@@ -106,24 +116,72 @@ const Day1 = {
   Day1EndofMorning: [
     'On dirait que je me suis déjà fait un ami!',
     'FADE OUT & SONS ici',
-    'Je ne suis vraiment pas fortiche en Maths, et le niveau à Blackfoot Academy est plus élevé que je pensais... Alors que la cloche sonne pour indiquer la fin du cours, je réalise que je vais devoir travailler fort pour garder le niveau!',
+    'Je ne suis vraiment pas fortiche en Maths, et le niveau à Blackfoot Academy est plus élevé que je pensais...\nAlors que la cloche sonne pour indiquer la fin du cours, je réalise que je vais devoir travailler fort pour garder le niveau!',
     'kevin {{player.name}}!',
     'show character kevin default with fadeIn',
     'Je me retourne pour voir Kevin qui me sourit - il a déjà rangé ses affaires dans son sac et se lève.',
     "kevin Veux-tu que je te fasse faire un tour de l'école avant le déjeuner?",
+    {
+      Conditional: {
+        Condition() {
+          return this.storage('affinity').pm > 0;
+        },
+        True: 'jump PMChoice',
+        False: 'jump Day1FollowKevin',
+      },
+    },
+  ],
+  PMChoice: [
     "Alors que Kevin attend ma réponse, je remarque que l'étudiant à skateboard semble avoir quitté son bureau en vitesse pour s'eclipser par la porte de derrière.",
     {
       Choice: {
-        Text: "Refuser l'offre de Kevin et suivre l'inconnu au skateboard",
-        Do: 'jump Day1FollowPm',
-        onChosen() {
-          monogatari.storage().affinity.pm += 1;
+        PM: {
+          Text: "Refuser l'offre de Kevin et suivre l'inconnu au skateboard (WIP)",
+          Do: 'jump Day1FollowPm',
+          onChosen() {
+            monogatari.storage().affinity.pm += 1;
+          },
+          onRevert() {
+            monogatari.storage().affinity.pm -= 1;
+          },
+        },
+        NotPM: {
+          Text: "Visiter l'école avec Kevin.",
+          Do: 'jump Day1FollowKevin',
         },
       },
-      Colorieur: {
-        Text: "Visiter l'école avec Kevin.",
-        Do: 'jump Day1FollowKevin',
-      },
     },
+  ],
+  Day1FollowPm: [
+  ],
+  Day1FollowKevin: [
+    'hide character kevin with fadeOut',
+    "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
+    'show scene hall1 with fadeIn',
+    "Je suis Kevin à travers les couloirs alors qu'il me montre le premier étage de Blackfoot Academy.",
+    "La salle des profs, les différentes salles de réunion... Kevin me dit quelques mots sur chaque salle, je suis chanceux de l'avoir rencontré!",
+    "Une fois notre tour terminé, alors que nous nous approchons de la caféteria, un des haut-parleurs de l'école grésille et une voix grave en sort.",
+    'unknwn {{player.name}}, veuillez vous présenter au bureau du conseil des étudiants! {{player.name}}, merci.',
+    'p Ah!',
+    'show character kevin default with fadeIn',
+    'kevin Tiens, {{player.name}}, tu sais ce que te veux le conseil des étudiants?',
+    "p Euh, oui, je crois que je n'ai pas encore finalisé mon inscription, un truc dans ce genre là?",
+    'kevin Ah ben oui, ils doivent prendre ta photo et tout! Vas-donc les voir, je vais déjeuner, rejoins-moi après si tu veux!',
+    'hide character kevin with fadeOut',
+    "Et sur ce, il s'éclipse vers la caféteria.",
+    "Grâce à Kevin, j'ai maintenant une bonne idée d'où sont les différentes salles et, même si ça me prend un moment, je finis par trouver le bureau du conseil des étudiants...",
+    'show scene studentCouncil with fadeIn',
+    '... Complètement vide!',
+    "p B-bonjour? Il y a quelqu'un?",
+    "Un peu nerveux, je m'avance dans le bureau. L'ambiance ici est bizarrement oppressante...",
+    "p Je suis {{player.name}}, vous m'avez appelé, un peu plus tôt...",
+    'p Ah!',
+    'La porte claque derrière moi et je me retourne pour voir...',
+    'show character leslie default',
+    'p Aaah!',
+    'La créature devant moi parle avec une voix tonitruante',
+    "unknwn T'es là pour la photo, c'est ça?",
+    'p Ah, euh, oui... Et vous êtes?',
+    "leslie Moi c'est Léo, mais tout le monde m'appelle Leslie.",
   ],
 };
