@@ -115,6 +115,6 @@ monogatari.script({
   ...Day1,
   // The game starts here.
   Start: [
-    'jump Day1',
+    'jump Intro',
   ],
 });
