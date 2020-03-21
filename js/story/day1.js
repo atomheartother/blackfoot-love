@@ -209,7 +209,7 @@ const Day1 = {
     'p Huh?',
     'show scene hall1 with fadeIn',
     'show character max default',
-    "J'ouvre les yeux pour voir que l'étudiant m'a rattrapé, toujours les yeux plongés dans son bouquin.\nJe rougis un peu alors que je me redresse.",
+    "J'ouvre les yeux pour voir que l'étudiant m'a rattrapé, toujours les yeux plongés dans son bouquin.\nJe rougis un peu alors que je me redresse et que sa main quitte mon dos.",
     'p Um, merci beau-',
     'unknwn Attention.',
     'hide character max',
