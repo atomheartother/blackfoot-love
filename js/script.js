@@ -1,5 +1,7 @@
 /* global monogatari */
 /* global characters */
+/* global Intro */
+/* global Day1 */
 
 // Define the messages used in the game.
 monogatari.action('message').messages({
@@ -75,7 +77,7 @@ monogatari.characters({
     color: 'purple',
     directory: 'Kevin',
 
-    sprites: {
+    Images: {
       default: 'default.png',
       surprised: 'surprised.png',
       shy: 'shy.png',
@@ -85,9 +87,15 @@ monogatari.characters({
     Name: 'Leslie',
     color: 'blue',
     directory: 'Leslie',
-    sprites: {
+    Images: {
       default: 'default.png',
     },
+  },
+  max: {
+    Name: 'Maxime',
+    directory: 'Maxime',
+    color: 'black',
+    Images: { default: 'default.png' },
   },
   nico: {
     Name: 'Nicolas-sensei',
