@@ -174,7 +174,7 @@ const Day1 = {
     "unknwn T'es là pour la photo, c'est ça?",
     "p Ah, euh, oui... Désolé, j'ai pas d'argent à vous donner...",
     'Je me résigne à me faire racketer pour ma photo.',
-    "leslie Hein? Quoi? Mais non, c'est gratuit.",
+    "unknwn Hein? Quoi? Mais non, c'est gratuit.",
     "leslie Moi c'est Léo, mais tout le monde m'appelle Leslie.",
     "J'ai toujours un peu peur, mals Léo ne semble pas aussi dangereux qu'au premier abord.",
     'p Et vous êtes... Un professeur qui surveille le bureau des éudiants?',
