@@ -78,9 +78,9 @@ monogatari.characters({
     directory: 'Kevin',
 
     Images: {
-      default: 'default.png',
-      surprised: 'surprised.png',
-      shy: 'shy.png',
+      default: 'Kevin-normal.png',
+      surprised: 'Kevin-surpris.png',
+      shy: 'Kevin-rougit.png',
     },
   },
   leslie: {
@@ -95,7 +95,7 @@ monogatari.characters({
     Name: 'Maxime',
     directory: 'Maxime',
     color: 'black',
-    Images: { default: 'default.png' },
+    Images: { default: 'Max-normal.png', surprised: 'Max-surpris.png', shy: 'Max-rougit.png' },
   },
   nico: {
     Name: 'Nicolas-sensei',
@@ -107,7 +107,7 @@ monogatari.characters({
     Name: 'PM',
     directory: 'PM',
     color: 'darkred',
-    Images: { default: 'default.png' },
+    Images: { default: 'PM-normal.png', shy: 'PM-rougit.png', surprised: 'PM-surpris.png' },
   },
   unknwn: {
     Name: '???',
