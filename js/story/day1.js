@@ -105,12 +105,16 @@ const Day1 = {
     },
   ],
   Day1KevinPraise: [
+    'show character kevin shy with fadeIn',
     'kevin Wow, {{player.name}}, je ne savais pas que tu étais colorieur! Je suis président du club de coloriage!',
+    'hide character kevin with fadeOut',
     'Je souris timidement et me retourne vers mon cahier. Alors que le cours commence, le sourire de Kevin reste dans ma tête...',
     'jump Day1EndofMorning',
   ],
   Day1KevinNormal: [
+    'show character kevin default with fadeIn',
     "kevin Ça s'est bien passé! Bienvenue dans la classe, {{player.name}}!",
+    'hide character kevin with fadeOut',
     'Je souris timidement et me retourne vers mon cahier. Alors que le cours commence, je souris intérieurement.',
     'jump Day1EndofMorning',
   ],
@@ -126,8 +130,11 @@ const Day1 = {
     'Je me retourne pour voir Kevin qui me sourit - il a déjà rangé ses affaires dans son sac et se lève.',
     'show character pm default at right with fadeIn',
     "Me retournant pour parler à Kevin, je vois que l'étudiant à skateboard s'est levé de son bureau en vitesse, et s'apprète à s'eclipser par la porte de derrière.",
-    "Le suivant du coin de l'oeil, je vois qu'il sort un paquet de cigarettes de sa veste en douce!",
-    "Alors que je le fixe du regard, l'étudiant se tourne vers moi et me fait un clin d'oeil... Puis sort de la classe discrètement.",
+    "Le suivant du coin de l'oeil, je vois qu'il sort un paquet de cigarettes de sa veste en douce.",
+    'show character pm shy at right',
+    "Alors que je le fixe du regard, l'étudiant se tourne vers moi et me fait un clin d'oeil... Puis sort de la classe discrètement!!",
+    'show character pm default at right',
+    'wait 200',
     'hide character pm with fadeOut',
     'kevin Alors, {{player.name}}?',
     "Oups, Kevin essaie de me parler, je ne l'écoutais pas du tout!",
@@ -140,7 +147,7 @@ const Day1 = {
           Do: "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
         },
         PM: {
-          Text: "Refuser l'offre de Kevin et suivre l'étudiant au skateboard (TODO)",
+          Text: "<strike>Refuser l'offre de Kevin et suivre l'étudiant au skateboard</strike> (<b>TODO</b>)",
           Do: "<i>Ce choix n'est pas disponible pour la démo!</i>",
           onChosen() {
             monogatari.storage().affinity.pm += 1;
@@ -158,7 +165,7 @@ const Day1 = {
     'play music daylight',
     "La salle des profs, les différentes salles de réunion... Kevin me dit quelques mots sur chaque salle, je suis chanceux de l'avoir rencontré!",
     "Une fois notre tour terminé, alors que nous nous approchons de la caféteria, un des haut-parleurs de l'école grésille et une voix grave en sort.",
-    'unknwn {{player.name}}, veuillez vous présenter au bureau du conseil des étudiants! {{player.name}}, merci.',
+    'unknwn <b>{{player.name}}, veuillez vous présenter au bureau du conseil des étudiants! {{player.name}}, merci.</b>',
     'p Ah!',
     'show character kevin default with fadeIn',
     'kevin Tiens, {{player.name}}, tu sais ce que te veux le conseil des étudiants?',
@@ -211,25 +218,25 @@ const Day1 = {
     "J'ouvre les yeux pour voir que l'étudiant m'a rattrapé, toujours les yeux plongés dans son bouquin.\nJe rougis un peu alors que je me redresse et que sa main quitte mon dos.",
     'p Um, merci beau-',
     'unknwn Attention.',
-    'hide character max',
+    'hide character max with fadeOut',
     'Toujours sans me regarder, il continue de marcher dans sa direction originale.',
     "Bouche-bée, je réalise qu'il a dû me rattraper à une main parce qu'il tenait son vape dans l'autre.",
     {
       Choice: {
         Dialog: 'Je devrais sûrement le remercier, mais il ne semblait pas très intéressé.',
+        NotPM: {
+          Text: 'Aller manger',
+          Do: "Je secoue la tête et décide d'aller manger. Bizarre, tout de même...",
+        },
         Max: {
-          Text: "Suivre l'étudiant mystérieux pour le remercier (WIP)",
-          Do: 'jump Day1FollowMax',
+          Text: "<strike>Suivre l'étudiant mystérieux pour le remercier</b> (<b>TODO</b>)",
+          Do: "<i>Ce choix n'est pas disponible pour la démo!</i>",
           onChosen() {
             monogatari.storage().affinity.max += 1;
           },
           onRevert() {
             monogatari.storage().affinity.max -= 1;
           },
-        },
-        NotPM: {
-          Text: 'Aller manger',
-          Do: "Je secoue la tête et décide d'aller manger. Bizarre, tout de même...",
         },
       },
     },
@@ -243,9 +250,10 @@ const Day1 = {
     'p Ah, tu le connais?',
     'kevin ...',
     'Kevin hésite puis me fait un sourire en coin.',
+    'show character kevin shy',
     "kevin On peut dire ça, oui... On... S'entend bien en tout cas, hehe.",
     'Huh... Je ne sais pas que faire de cette expression pensive sur le visage de Kevin..',
+    'show character kevin default with fadeIn',
     "Est-ce que Max serait son petit ami? Alors que je m'apprête à en demander plus, Kevin change d'expression et se tourne vers moi",
-
   ],
 };
