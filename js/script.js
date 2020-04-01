@@ -102,7 +102,7 @@ monogatari.characters({
   max: {
     Name: 'Maxime',
     directory: 'Maxime',
-    color: 'black',
+    color: 'darkgrey',
     Images: { default: 'Max-normal.png', surprised: 'Maxime-surpris.png', shy: 'Maxime-rougit.png' },
   },
   nico: {
