@@ -36,6 +36,7 @@ monogatari.assets('music', {
   smooth: 'smooth.mp3',
   daylight: 'daylight.ogg',
   raindrops: 'raindrops.ogg',
+  lullaby: 'lullaby.ogg',
 });
 
 // Define the voice files used in the game.
@@ -47,6 +48,7 @@ monogatari.assets('voices', {
 monogatari.assets('sounds', {
   bell: 'school_bell.mp3',
   slap: 'slap.mp3',
+  doorClose: 'doorclose.mp3',
 });
 
 // Define the videos used in the game.
@@ -67,6 +69,8 @@ monogatari.assets('scenes', {
   studentCouncil: 'studentcouncil.jpg',
   black: 'black.png',
   cafet: 'cafet.jpg',
+  street: 'street.jpg',
+  houseEntrance: 'houseEntrance.jpg',
 });
 
 
@@ -99,7 +103,7 @@ monogatari.characters({
     Name: 'Maxime',
     directory: 'Maxime',
     color: 'black',
-    Images: { default: 'Max-normal.png', surprised: 'Max-surpris.png', shy: 'Max-rougit.png' },
+    Images: { default: 'Max-normal.png', surprised: 'Maxime-surpris.png', shy: 'Maxime-rougit.png' },
   },
   nico: {
     Name: 'Nicolas-sensei',
@@ -125,6 +129,6 @@ monogatari.script({
   ...Day1,
   // The game starts here.
   Start: [
-    'jump Intro',
+    'jump Day1EndofMorning',
   ],
 });
