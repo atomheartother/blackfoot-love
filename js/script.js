@@ -34,6 +34,8 @@ monogatari.assets('gallery', {
 // Define the music used in the game.
 monogatari.assets('music', {
   smooth: 'smooth.mp3',
+  daylight: 'daylight.ogg',
+  raindrops: 'raindrops.ogg',
 });
 
 // Define the voice files used in the game.
@@ -63,6 +65,8 @@ monogatari.assets('scenes', {
   class: 'class.jpg',
   hall1: 'hall1.jpg',
   studentCouncil: 'studentcouncil.jpg',
+  black: 'black.png',
+  cafet: 'cafet.jpg',
 });
 
 

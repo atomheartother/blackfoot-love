@@ -2,7 +2,8 @@
 
 const Day1 = {
   Day1: [
-    'show scene class with fadeIn',
+    'show scene class with fadeIn 1000',
+    'play music raindrops',
     "Courant juste après Kevin, j'arrive dans la salle de classe essoufflé... Tout le monde est déjà assis et nous regarde!",
     'show character kevin default at center with fadeIn',
     "kevin Ouf! On dirait que Nicolas-sensei n'est pas encore là!",
@@ -115,7 +116,10 @@ const Day1 = {
   ],
   Day1EndofMorning: [
     'On dirait que je me suis déjà fait un ami!',
-    'FADE OUT & SONS ici',
+    'show scene black with fadeIn duration 1s',
+    'play sound bell',
+    'wait 500',
+    'show scene class with fadeIn duration 1s',
     'Je ne suis vraiment pas fortiche en Maths, et le niveau à Blackfoot Academy est plus élevé que je pensais...\nAlors que la cloche sonne pour indiquer la fin du cours, je réalise que je vais devoir travailler fort pour garder le niveau!',
     'kevin {{player.name}}!',
     'show character kevin default with fadeIn',
@@ -131,9 +135,13 @@ const Day1 = {
     "kevin Pfff... Je te demandais si tu voulais que je te fasse faire un tour de l'école avant le déjeuner?",
     {
       Choice: {
+        NotPM: {
+          Text: "Visiter l'école avec Kevin.",
+          Do: "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
+        },
         PM: {
-          Text: "Refuser l'offre de Kevin et suivre l'étudiant au skateboard (WIP)",
-          Do: 'jump Day1FollowPm',
+          Text: "Refuser l'offre de Kevin et suivre l'étudiant au skateboard (TODO)",
+          Do: "<i>Ce choix n'est pas disponible pour la démo!</i>",
           onChosen() {
             monogatari.storage().affinity.pm += 1;
           },
@@ -141,15 +149,13 @@ const Day1 = {
             monogatari.storage().affinity.pm -= 1;
           },
         },
-        NotPM: {
-          Text: "Visiter l'école avec Kevin.",
-          Do: "J'accepte l'offre de Kevin et nous sortons de la salle en discutant",
-        },
       },
     },
     'hide character kevin with fadeOut',
+    'stop music with fade 0.5',
     'show scene hall1 with fadeIn',
     "Je suis Kevin à travers les couloirs alors qu'il me montre le premier étage de Blackfoot Academy.",
+    'play music daylight',
     "La salle des profs, les différentes salles de réunion... Kevin me dit quelques mots sur chaque salle, je suis chanceux de l'avoir rencontré!",
     "Une fois notre tour terminé, alors que nous nous approchons de la caféteria, un des haut-parleurs de l'école grésille et une voix grave en sort.",
     'unknwn {{player.name}}, veuillez vous présenter au bureau du conseil des étudiants! {{player.name}}, merci.',
